@@ -1,7 +1,235 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPA</title>
+    <style>
+      body {
+        background-color: #fdfcfa;
+      }
+
+      img.logo {
+        width: 5%;
+        height: 5%;
+        margin-bottom: 0px;
+      }
+
+      h1.hometitle {
+        font-size: 200px;
+        font-family: "Modestic Display", sans-serif;
+        text-align: center;
+        color: #0a1e0a;
+        margin-bottom: 0;
+      }
+
+      p.blurb {
+        font-size: 30px;
+        font-family: "CMU Serif", bold;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .typing-container {
+        text-align: center;
+        font-size: 25px;
+        font-family: CMU serif, roman;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 10px;
+        font-size: 20px;
+      }
+
+      .button-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .gray-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0a1e0a;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        margin: 5px;
+        font-family: "CMU Serif", serif; /* Correct the font-family value */
+        font-size: 16px;
+        opacity: 0; /* Initially hide the buttons */
+        transform: translateY(-50px); /* Move buttons up */
+        animation: dropIn 1s ease forwards; /* Apply the animation */
+      }
+
+      .gray-button:hover {
+        background-color: #999;
+      }
+
+      @keyframes dropIn {
+        to {
+          opacity: 1; /* Make buttons visible */
+          transform: translateY(0); /* Move buttons back to original position */
+        }
+      }
+
+      header.homeheader {
+        padding: 20px;
+        display: flex; /* Use flexbox for horizontal alignment */
+        align-items: left; /* Center vertically within the header */
+      }
+
+      header img {
+        max-width: 100px; /* Set a maximum width for the image */
+        height: auto;
+        margin-right: 20px; /* Add some spacing between image and text */
+      }
+
+      h1 {
+        margin: 0; /* Remove default margin from h1 */
+      }
+
+      hr.home {
+        border: none; /* Remove the default border */
+        height: 2px; /* Set the height of the line */
+        background-color: #bdbdbd; /* Change the color of the line */
+        margin: 20px 300px; /* Add spacing above and below the line */
+      }
+
+      .animated-line {
+        position: relative;
+        border: none; /* Remove the default border */
+        height: 2px; /* Initial height of the line */
+        background-color: #bdbdbd; /* Color of the line */
+        width: 0; /* Initial width of the line (starts from the middle) */
+        margin: 20px auto; /* Center the line horizontally and add top/bottom margin */
+        animation: growLine 1s ease-out forwards; /* Apply the animation */
+      }
+
+      /* Define the animation */
+      @keyframes growLine {
+        to {
+          width: calc(
+            100% - 500px
+          ); /* Final width of the line (extends to both sides) */
+        }
+      }
+
+      #keyboard {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+        margin-top: 20px;
+      }
+
+      .key {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        cursor: pointer;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      /* Remove underlines from anchor elements */
+      td a {
+        text-decoration: none;
+        padding: 10px; /* Increase padding for larger clickable area */
+        display: inline-block; /* Display as block to control padding */
+        border-radius: 10%; /* Make the clickable area round */
+        transition: background-color 0.3s; /* Add transition for smooth hover effect */
+      }
+
+      /* Add background color and border radius on hover */
+      td a:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+  </head>
   <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+    <!-- LOGO -->
+    <header class="homeheader">
+      <a href="home.html"
+        ><img
+          class="logo"
+          src="images/Helid Logo Website.png"
+          alt="A beautiful image"
+          style="width: 69px; height: auto; margin-bottom: 0"
+      /></a>
+    </header>
+
+    <!-- KEYBOARD -->
+    <textarea id="text-area" rows="5" cols="50"></textarea>
+    <h1>Consonants</h1>
+    <table>
+      <tr>
+        <th></th>
+        <th>bilabial</th>
+        <th>labiodental</th>
+        <th>dental</th>
+        <th>alveolar</th>
+        <th>post-alveolar</th>
+        <th>retroflex</th>
+        <th>palatal</th>
+        <th>velar</th>
+        <th>uvular</th>
+        <th>pharyngeal</th>
+        <th>glottal</th>
+      </tr>
+      <tr>
+        <th>plosive</th>
+        <td><a href="#" onclick="addToTextArea('p')">p</a></td>
+        <td><a href="#" onclick="addToTextArea('ɸ')">ɸ</a></td>
+        <td><a href="#" onclick="addToTextArea('θ')">θ</a></td>
+        <td><a href="#" onclick="addToTextArea('t')">t</a></td>
+        <td><a href="#" onclick="addToTextArea('ʈ')">ʈ</a></td>
+        <td><a href="#" onclick="addToTextArea('ʈʰ')">ʈʰ</a></td>
+        <td><a href="#" onclick="addToTextArea('c')">c</a></td>
+        <td><a href="#" onclick="addToTextArea('k')">k</a></td>
+        <td><a href="#" onclick="addToTextArea('q')">q</a></td>
+        <td><a href="#" onclick="addToTextArea('ʡ')">ʡ</a></td>
+        <td><a href="#" onclick="addToTextArea('ʔ')">ʔ</a></td>
+      </tr>
+      <tr>
+        <th>nasal</th>
+        <td><a href="#" onclick="addToTextArea('m')">m</a></td>
+        <td><a href="#" onclick="addToTextArea('ɱ')">ɱ</a></td>
+        <td></td>
+        <td><a href="#" onclick="addToTextArea('n')">n</a></td>
+        <td></td>
+        <td><a href="#" onclick="addToTextArea('ɳ')">ɳ</a></td>
+        <td><a href="#" onclick="addToTextArea('ɲ')">ɲ</a></td>
+        <td><a href="#" onclick="addToTextArea('ŋ')">ŋ</a></td>
+        <td><a href="#" onclick="addToTextArea('ɴ')">ɴ</a></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <!-- Add more rows for other features -->
+      </tr>
+    </table>
+
+    <script>
+      function addToTextArea(character) {
+        var textArea = document.getElementById("text-area");
+        textArea.value += character;
+      }
+    </script>
   </body>
 </html>
