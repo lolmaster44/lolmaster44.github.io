@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPA</title>
+    <style>
+      body {
+        background-color: #fdfcfa;
+      }
+
+      img.logo {
+        width: 5%;
+        height: 5%;
+        margin-bottom: 0px;
+      }
+
+      h1.hometitle {
+        font-size: 200px;
+        font-family: "Modestic Display", sans-serif;
+        text-align: center;
+        color: #0a1e0a;
+        margin-bottom: 0;
+      }
+
+      p.blurb {
+        font-size: 30px;
+        font-family: "CMU Serif", bold;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .typing-container {
+        text-align: center;
+        font-size: 25px;
+        font-family: CMU serif, roman;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 10px;
+        font-size: 20px;
+      }
+
+      .button-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .gray-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0a1e0a;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        margin: 5px;
+        font-family: "CMU Serif", serif; /* Correct the font-family value */
+        font-size: 16px;
+        opacity: 0; /* Initially hide the buttons */
+        transform: translateY(-50px); /* Move buttons up */
+        animation: dropIn 1s ease forwards; /* Apply the animation */
+      }
+
+      .gray-button:hover {
+        background-color: #999;
+      }
+
+      @keyframes dropIn {
+        to {
+          opacity: 1; /* Make buttons visible */
+          transform: translateY(0); /* Move buttons back to original position */
+        }
+      }
+
+      header.homeheader {
+        padding: 20px;
+        display: flex; /* Use flexbox for horizontal alignment */
+        align-items: left; /* Center vertically within the header */
+      }
+
+      header img {
+        max-width: 100px; /* Set a maximum width for the image */
+        height: auto;
+        margin-right: 20px; /* Add some spacing between image and text */
+      }
+
+      h1 {
+        margin: 0; /* Remove default margin from h1 */
+      }
+
+      hr.home {
+        border: none; /* Remove the default border */
+        height: 2px; /* Set the height of the line */
+        background-color: #bdbdbd; /* Change the color of the line */
+        margin: 20px 300px; /* Add spacing above and below the line */
+      }
+
+      .animated-line {
+        position: relative;
+        border: none; /* Remove the default border */
+        height: 2px; /* Initial height of the line */
+        background-color: #bdbdbd; /* Color of the line */
+        width: 0; /* Initial width of the line (starts from the middle) */
+        margin: 20px auto; /* Center the line horizontally and add top/bottom margin */
+        animation: growLine 1s ease-out forwards; /* Apply the animation */
+      }
+
+      /* Define the animation */
+      @keyframes growLine {
+        to {
+          width: calc(
+            100% - 500px
+          ); /* Final width of the line (extends to both sides) */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="homeheader">
+      <img
+        class="logo"
+        src="images/Helid Logo Website.png"
+        alt="A beautiful image"
+      />
+      <!-- TITLE + BLURB -->
+    </header>
+  </body>
+</html>
