@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IPA</title>
+    <title>Helid</title>
     <style>
       body {
         background-color: #fdfcfa;
@@ -113,123 +113,55 @@
           ); /* Final width of the line (extends to both sides) */
         }
       }
-
-      #keyboard {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 5px;
-        margin-top: 20px;
-      }
-
-      .key {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f0f0f0;
-        cursor: pointer;
-      }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      th,
-      td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: center;
-      }
-
-      th {
-        background-color: #f2f2f2;
-      }
-
-      /* Remove underlines from anchor elements */
-      td a {
-        text-decoration: none;
-        padding: 10px; /* Increase padding for larger clickable area */
-        display: inline-block; /* Display as block to control padding */
-        border-radius: 10%; /* Make the clickable area round */
-        transition: background-color 0.3s; /* Add transition for smooth hover effect */
-      }
-
-      /* Add background color and border radius on hover */
-      td a:hover {
-        background-color: #e0e0e0;
-      }
     </style>
   </head>
   <body>
-    <!-- LOGO -->
     <header class="homeheader">
-      <a href="home.html"
-        ><img
-          class="logo"
-          src="images/Helid Logo Website.png"
-          alt="A beautiful image"
-          style="width: 69px; height: auto; margin-bottom: 0"
-      /></a>
+      <img
+        class="logo"
+        src="images/Helid Logo Website.png"
+        alt="A beautiful image"
+      />
+      <!-- TITLE + BLURB -->
     </header>
 
-    <!-- KEYBOARD -->
-    <textarea id="text-area" rows="5" cols="50"></textarea>
-    <h1>Consonants</h1>
-    <table>
-      <tr>
-        <th></th>
-        <th>bilabial</th>
-        <th>labiodental</th>
-        <th>dental</th>
-        <th>alveolar</th>
-        <th>post-alveolar</th>
-        <th>retroflex</th>
-        <th>palatal</th>
-        <th>velar</th>
-        <th>uvular</th>
-        <th>pharyngeal</th>
-        <th>glottal</th>
-      </tr>
-      <tr>
-        <th>plosive</th>
-        <td><a href="#" onclick="addToTextArea('p')">p</a></td>
-        <td><a href="#" onclick="addToTextArea('ɸ')">ɸ</a></td>
-        <td><a href="#" onclick="addToTextArea('θ')">θ</a></td>
-        <td><a href="#" onclick="addToTextArea('t')">t</a></td>
-        <td><a href="#" onclick="addToTextArea('ʈ')">ʈ</a></td>
-        <td><a href="#" onclick="addToTextArea('ʈʰ')">ʈʰ</a></td>
-        <td><a href="#" onclick="addToTextArea('c')">c</a></td>
-        <td><a href="#" onclick="addToTextArea('k')">k</a></td>
-        <td><a href="#" onclick="addToTextArea('q')">q</a></td>
-        <td><a href="#" onclick="addToTextArea('ʡ')">ʡ</a></td>
-        <td><a href="#" onclick="addToTextArea('ʔ')">ʔ</a></td>
-      </tr>
-      <tr>
-        <th>nasal</th>
-        <td><a href="#" onclick="addToTextArea('m')">m</a></td>
-        <td><a href="#" onclick="addToTextArea('ɱ')">ɱ</a></td>
-        <td></td>
-        <td><a href="#" onclick="addToTextArea('n')">n</a></td>
-        <td></td>
-        <td><a href="#" onclick="addToTextArea('ɳ')">ɳ</a></td>
-        <td><a href="#" onclick="addToTextArea('ɲ')">ɲ</a></td>
-        <td><a href="#" onclick="addToTextArea('ŋ')">ŋ</a></td>
-        <td><a href="#" onclick="addToTextArea('ɴ')">ɴ</a></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <!-- Add more rows for other features -->
-      </tr>
-    </table>
+    <!-- CONTENT -->
+    <h1 class="hometitle">Helid</h1>
 
+    <div>
+      <p class="blurb">A better tool for linguistics.</p>
+    </div>
+
+    <div class="animated-line"></div>
+
+    <div class="typing-container">
+      <p class="type" id="type"></p>
+    </div>
+
+    <div class="button-container">
+      <a class="gray-button" href="ipa.html">IPA</a>
+      <a class="gray-button" href="gloss.html">Gloss</a>
+      <a class="gray-button" href="phonetic.html">Phonetic Analysis</a>
+    </div>
+
+    <!-- TYPING ANIMATION -->
     <script>
-      function addToTextArea(character) {
-        var textArea = document.getElementById("text-area");
-        textArea.value += character;
+      var i = 0;
+      var txt = "What would you like to do today?"; /* The text */
+      var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("type").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
       }
+
+      // Start the typing animation when the page loads
+      window.onload = function () {
+        typeWriter();
+      };
     </script>
   </body>
 </html>
